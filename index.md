@@ -11,7 +11,10 @@ print(requests.get('https://artilities.herokuapp.com/api/ideas').json())
 ```py
 {
   status_code: 200, 
-  generated_idea: 'Big beautiful dragon',
+  generated_idea: {
+    'ru': 'Большой красивый дракон',
+    'eng': 'Big beautiful dragon'
+  },
   error_response: None,
   execution_time: 0
 }
