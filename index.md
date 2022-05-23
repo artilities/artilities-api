@@ -99,8 +99,10 @@ requests.get('https://artilities.herokuapp.com/api/other/patrons').json()
   "status_code":200,
   "details": [
     {
-      "tier":2,"custom_message":{"message":"Hello world!","approved":true},
-      "custom_icon: {"url":"https://i.ibb.co/8P09wHK/image.png"},"nickname":"lukeFTW"
+      "tier":2,
+      "custom_message":{"message":"Hello world!","approved":true},
+      "custom_icon: {"url":"https://i.ibb.co/8P09wHK/image.png"},
+      "nickname":"lukeFTW"
     }
   ],
   "execution_time":26
