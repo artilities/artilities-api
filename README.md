@@ -1,2 +1,2 @@
 # artilities-api
-REST API documentation for Artilities 
+Official REST API documentation for https://artilities.herokuapp.com/
