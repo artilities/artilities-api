@@ -42,8 +42,8 @@ requests.get('https://artilities.herokuapp.com/api/challenges').json()
 ```
 
 ### Dictionary
-#### `GET /api/dict?query=&lang=`
-> Bulk load of the whole dictionary. For specific query specify parameters `query` (search query) and `lang` (`ru`/`eng`). If `lang` parameter is empty, search by `eng` is performed
+#### `GET /api/dict` + `?query=&lang=` (optional parameters)
+> Bulk load of the whole dictionary without parameters. For specific query specify parameters `query` (search query) and `lang` (ru/eng). If `lang` parameter is empty, search by `eng` is performed
 - Example request:
 ```py
 # Python
