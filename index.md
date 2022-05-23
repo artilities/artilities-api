@@ -42,24 +42,33 @@ requests.get('https://artilities.herokuapp.com/api/challenges').json()
 ```
 
 ### Dictionary
-#### `GET /api/dict`
-> Bulk load of the whole dictionary
+#### `GET /api/dict?query=&lang=`
+> Bulk load of the whole dictionary. For specific query specify parameters `query` (search query) and `lang` (`ru`/`eng`). If `lang` parameter is empty, search by `eng` is performed
 - Example request:
 ```py
 # Python
 import requests
-requests.get('https://artilities.herokuapp.com/api/dict').json()
+requests.get('https://artilities.herokuapp.com/api/dict?query=oc').json()
 ```
 - Example response:
 ```
 {
-  "status_code":200,
-  "words": [
-    {"idea_description": {
-      "word":{"ru":"OC ","eng":"OC"},
-      "explanation":{"ru":" персонаж; чаще всего придуман лично вами.","eng":"original character; most often invented by you personally."}
-    }, ... 
-  ]
+    "status_code": 200,
+    "query_results": [
+        [
+            "OC",
+            "original character; most often invented by you personally."
+        ],
+        [
+            "Monochrome",
+            "(Greek \"mono\" - one and \"chroma\" - color) monochromatic (but not necessarily black and white) work"
+        ],
+        [
+            "Boaf OC",
+            "original character based on a friend"
+        ]
+    ],
+    "execution_time": 47
 }
 ```
 
