@@ -1,66 +1,79 @@
-## Artilities REST API Documentation | Документация к REST API Артилит
-## Generator's endpoints | Эндпоинты для генератора
-### `GET /api/ideas`
-> This API endpoint allows you to get a random idea from the database | Этот эндпоинт позволяет вам получить одну случайно выбранную идею из базы данных
-- Example request | Пример запроса:
+## Artilities REST API Documentation
+## Interactions:
+### Generator:
+#### `GET /api/ideas`
+> Get random idea from the database
+- Example request:
 ```py
 # Python
 import requests
-print(requests.get('https://artilities.herokuapp.com/api/ideas').json())
+requests.get('https://artilities.herokuapp.com/api/ideas').json()
 ```
-- Example response | Пример ответа:
-```py
+- Example response:
+```
 {
-  status_code: 200, 
-  generated_idea: {
-    'ru': 'Большой красивый дракон',
-    'eng': 'Big beautiful dragon'
+  "status_code":200,
+  "generated_idea": {
+    "ru":"7 гномов и один кот",
+    "eng":"7 gnomes and one cat"
   },
-  error_response: None,
-  execution_time: 0
+  "execution_time":142
 }
 ```
 
-## Other endpoints | Другие эндпоинты
-### `GET /api/other/patrons`
-> This API endpoint allows you to get a list of patrons | Этот эндпоинт позволяет вам получить список патронов (если таковые существуют)
-- Example request | Пример запроса:
+#### `GET /api/challenges`
+> Get random challenge from the database
+- Example request:
 ```py
 # Python
 import requests
-print(requests.get('https://artilities.herokuapp.com/api/other/patrons').json())
+requests.get('https://artilities.herokuapp.com/api/challenges').json()
 ```
-- Example response | Пример ответа:
-```py
+- Example response:
+```
 {
-    "status_code": 200,
-    "details": [
-        {
-            "tier": 2,
-            "custom_message": {
-                "message": "Hello world!",
-                "approved": true
-            },
-            "custom_icon": {
-                "url": "https://i.ibb.co/8P09wHK/image.png"
-            },
-            "nickname": "lukeFTW"
-        }
-    ],
-    "execution_time": 27
+  "status_code":200,
+  "generated_challenge": {
+    "eng":"draw using anything but your hands",
+    "ru":"Рисуй чем угодно, только не руками"
+  },
+  "execution_time":26
 }
 ```
 
-### `GET /api/other/banners`
-> This API endpoint allows you to get a random banner | Этот эндпоинт позволяет вам получить рандомный баннер 
-- Example request | Пример запроса:
+### Dictionary
+#### `GET /api/dict`
+> Bulk load of the whole dictionary
+- Example request:
 ```py
 # Python
 import requests
-print(requests.get('https://artilities.herokuapp.com/api/other/banners').json())
+requests.get('https://artilities.herokuapp.com/api/dict').json()
 ```
-- Example response | Пример ответа:
+- Example response:
+```
+{
+  "status_code":200,
+  "words": [
+    {"idea_description": {
+      "word":{"ru":"OC ","eng":"OC"},
+      "explanation":{"ru":" персонаж; чаще всего придуман лично вами.","eng":"original character; most often invented by you personally."}
+    }, ... 
+  ]
+}
+```
+
+### Other:
+#### `GET /api/other/banners`
+> Get a random banner
+- Example request:
 ```py
+# Python
+import requests
+requests.get('https://artilities.herokuapp.com/api/other/banners').json()
+```
+- Example response:
+```
 {
     "status_code": 200,
     "details": {
@@ -69,5 +82,27 @@ print(requests.get('https://artilities.herokuapp.com/api/other/banners').json())
         "language": ""
     },
     "execution_time": 59
+}
+```
+
+#### `GET /api/other/patrons`
+> Get list of Patreon supporters
+- Example request:
+```py
+# Python
+import requests
+requests.get('https://artilities.herokuapp.com/api/other/patrons').json()
+```
+- Example response:
+```
+{
+  "status_code":200,
+  "details": [
+    {
+      "tier":2,"custom_message":{"message":"Hello world!","approved":true},
+      "custom_icon: {"url":"https://i.ibb.co/8P09wHK/image.png"},"nickname":"lukeFTW"
+    }
+  ],
+  "execution_time":26
 }
 ```
