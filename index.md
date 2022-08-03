@@ -79,7 +79,12 @@ requests.get('https://artilities.herokuapp.com/api/dict?query=oc').json()
 ```py
 # Python
 import requests
-requests.get('https://artilities.herokuapp.com/api/user/getinfo?devkey=abc&userid=468470176887734288&searched_userid=468470176887734288').json()
+payload = {
+  'devkey': '123abc', 
+  'userid': '468470176887734288',
+  'searched_userid': '468470176887734288'
+}
+requests.get('https://artilities.herokuapp.com/api/user/getinfo', params=payload).json()
 ```
 
 - Example response:
