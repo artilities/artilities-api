@@ -42,7 +42,7 @@ requests.get('https://artilities.herokuapp.com/api/challenges').json()
 ```
 
 ### Dictionary
-#### `GET /api/dict` + `?query=&lang=` (optional parameters)
+#### `GET /api/dict` + `?query=&lang=` (optional parameters) (query: String, lang: String)
 > Bulk load of the whole dictionary without parameters. For specific query specify parameters `query` (search query) and `lang` (ru/eng). If `lang` parameter is empty, search by `eng` is performed
 - Example request:
 ```py
@@ -69,6 +69,42 @@ requests.get('https://artilities.herokuapp.com/api/dict?query=oc').json()
         ]
     ],
     "execution_time": 47
+}
+```
+
+### Users' interactions:
+#### `GET /api/user/getinfo` + `?devkey=&userid=&searched_userid=` (devkey: String, userid: String, searched_userid: String)
+> Get saved ideas, challenges and palettes of user with **searched_userid**. This endpoint requires authentication by **devkey** parameter which is related to your Discord account with **userid**.
+- Example request:
+```py
+# Python
+import requests
+requests.get('https://artilities.herokuapp.com/api/user/getinfo?devkey=abc&userid=468470176887734288&searched_userid=468470176887734288').json()
+```
+
+- Example response:
+```
+{
+    "status_code": 200,
+    "data": {
+        "ideas": [
+            "Lunar Landscape",
+            "Humanization of a musical instrument"
+        ],
+        "challenges": [
+            "draw with two hands at once",
+            "draw with your foot"
+        ],
+        "colors": [
+            [
+                "#1c4a64",
+                "#c899cc",
+                "#0ab3ad",
+                "#1a52a1"
+            ]
+        ]
+    },
+    "execution_time": 51
 }
 ```
 
