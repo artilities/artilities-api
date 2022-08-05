@@ -1,4 +1,8 @@
 ## Artilities REST API Documentation
+
+### [⚠️] Some of our endpoints are secured with a "devkey" AKA an API key.
+> If you are a developer and you want to get a devkey for accessing certain endpoints, you should join our [Discord server](https://discord.com/invite/u7dBmKyMWa) and contact moderators via tickets by clicking on `get api key` button in **#ticket-menu** channel.
+
 ## Interactions:
 ### Generator:
 #### `GET /api/ideas`
@@ -74,7 +78,7 @@ requests.get('https://artilities.herokuapp.com/api/dict?query=oc').json()
 
 ### Users' interactions:
 #### `GET /api/user/getinfo` + `?devkey=&userid=&searched_userid=` (devkey: String, userid: String, searched_userid: String)
-> Get saved ideas, challenges and palettes of user with **searched_userid**. This endpoint requires authentication by **devkey** parameter which is related to your Discord account with **userid**.
+> Get saved ideas, challenges and palettes of user with **searched_userid**. This endpoint requires authentication by **devkey** (API key) parameter which is related to your Discord account with **userid**.
 - Example request:
 ```py
 # Python
